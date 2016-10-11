@@ -39,7 +39,7 @@ var Payeezy = function() {
         createToken: function(e) {
             var n = "api-cert.payeezy.com";
             this["clientCallback"] = e;
-            var r = t();
+            // var r = t();
             var i = 0;
             var s = {};
             var o = 0;
@@ -76,8 +76,8 @@ var Payeezy = function() {
                 e(i, s);
                 return false
             }
-            var a = "https://" + n + "/v1/securitytokens?apikey=" + this.apikey + "&js_security_key=" + this.js_security_key + "&callback=Payeezy.callback&auth=" + this.auth + "&ta_token=" + this.ta_token + "&type=FDToken&credit_card.type=" + r["card_type"] + "&credit_card.cardholder_name=" + r["cardholder_name"] + "&credit_card.card_number=" + r["cc_number"] + "&credit_card.exp_date=" + r["exp_month"] + r["exp_year"] + "&credit_card.cvv=" + r["cvv_code"] + "&currency=" + r["currency"]+ "&billing_address.city=" + r["city"]+ "&billing_address.country=" + r["country"]+ "&billing_address.email=" + r["email"]+ "&billing_address.phone.type=" + r["type"]+ "&billing_address.phone.number=" + r["number"]+ "&billing_address.street=" + r["street"]+ "&billing_address.state_province=" + r["state_province"]+ "&billing_address.zip_postal_code=" + r["zip_postal_code"];
-			var f = document.createElement("script");
+            var a = "https://" + n + "/v1/securitytokens?apikey=" + this.apikey + "&js_security_key=" + this.js_security_key + "&callback=Payeezy.callback&auth=" + this.auth + "&ta_token=" + this.ta_token + "&type=FDToken&credit_card.type=" + this.card_type + "&credit_card.cardholder_name=" + this.cardholder_name + "&credit_card.card_number=" + this.cc_number + "&credit_card.exp_date=" + this.exp_date + "&credit_card.cvv=" + this.cvv_code + "&currency=" + this.currency + "&billing_address.city=" + this.city + "&billing_address.country=" + this.country + "&billing_address.phone.number=" + this.number + "&billing_address.street=" + this.street + "&billing_address.state_province=" + this.state_province + "&billing_address.zip_postal_code=" + this.zip_postal_code;
+            var f = document.createElement("script");
             f.src = a;
             document.getElementsByTagName("head")[0].appendChild(f)
         },
@@ -90,14 +90,49 @@ var Payeezy = function() {
         setTa_token: function(e) {
             this["ta_token"] = e
         },
-        setAuth: function(e){
+        setAuth: function(e) {
             this["auth"] = e
         },
-		setCurrency: function(e) {
+        setCurrency: function(e) {
             this["currency"] = e
+        },
+        setCardType: function(e) {
+            this["card_type"] = e
+        },
+        setExpDate: function(e) {
+            this["exp_date"] = e
+        },
+        setCardholderName: function(e) {
+            this["cardholder_name"] = e
+        },
+        setCCNumber: function(e) {
+            this["cc_number"] = e
+        },
+        setCVVCode: function(e) {
+            this["cvv_code"] = e
+        },
+        setCity: function(e) {
+            this["city"] = e
+        },
+        setCountry: function(e) {
+            this["country"] = e
+        },
+        setPhoneNumber: function(e) {
+            this["number"] = e
+        },
+        setStreet: function(e) {
+            this["street"] = e
+        },
+        setState: function(e) {
+            this["state_province"] = e
+        },
+        setZipCode: function(e) {
+            this["zip_postal_code"] = e
         },
         callback: function(e) {
             this["clientCallback"](e.status, e.results)
         }
     }
 }();
+
+// module.exports = Payeezy();
